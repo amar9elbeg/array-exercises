@@ -9,7 +9,7 @@ const path = require("path");
 const { execSync } = require("child_process");
 
 const DIR = __dirname;
-const OUT = path.join(DIR, "array-exercises.html");
+const OUT = path.join(DIR, "index.html"); // so the bare Pages URL serves it
 const ZIP = "array-exercises.zip"; // sits beside the .html so the link is relative
 
 // nice display names per file (fallback = filename)
