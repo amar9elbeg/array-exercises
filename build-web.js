@@ -112,9 +112,10 @@ console.log(`wrote ${path.basename(OUT)} — ${files.length} files, ${html.lengt
 // (present on macOS/Linux). ponytail: shell out, no zip dependency in node.
 const folder = path.basename(DIR);
 try {
-  execSync(`zip -rq "${folder}/${ZIP}" "${folder}" -x "${folder}/${ZIP}"`, {
-    cwd: path.dirname(DIR),
-  });
+  execSync(
+    `zip -rq "${folder}/${ZIP}" "${folder}" -x "${folder}/${ZIP}" "${folder}/.git/*"`,
+    { cwd: path.dirname(DIR) },
+  );
   const kb = (fs.statSync(path.join(DIR, ZIP)).size / 1024).toFixed(1);
   console.log(`wrote ${ZIP} — ${kb} KB`);
 } catch {
